@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assessment - Career Compass</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="assessment.css">
+</head>
+<body class="assessment-page">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/logo.jpeg" alt="Career Coach Logo">
+    </div>
+
+    <div class="nav-section nav">
+      <h4>MAIN</h4>
+      <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+      <a class="active" href="assessment.html"><i class="fa-solid fa-clipboard-check"></i> Assessment</a>
+      <a href="career-advisor.html"><i class="fa-solid fa-comments"></i> Career advisor</a>
+      <a href="mock-interview.html"><i class="fa-solid fa-microphone-lines"></i> Mock interview</a>
+
+      <h4>ACCOUNT</h4>
+      <a href="#"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="#"><i class="fa-solid fa-shield-halved"></i> Security</a>
+      <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 class="page-title">Assessment</h1>
+        <p class="page-sub">Complete the form to generate your readiness score, role-fit analysis, and next-step learning plan.</p>
+      </div>
+
+      <div class="top-actions">
+        <button class="btn btnGhost" type="button"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+        <a class="btn" href="dashboard.html"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a>
+      </div>
+    </header>
+
+    <section class="card formShell">
+      <form id="assessmentForm" novalidate>
+
+  <!-- 1. USER DETAILS -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-user-check"></i></div>
+      <div>
+        <h2>User Details</h2>
+        <p class="muted">Core profile details used as the base input for assessment analysis.</p>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label for="firstName">First name</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-user"></i>
+          <input id="firstName" type="text" name="firstName" placeholder="Enter first name" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="lastName">Last name</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-user"></i>
+          <input id="lastName" type="text" name="lastName" placeholder="Enter last name" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="currentTitle">Current title</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-briefcase"></i>
+          <input id="currentTitle" type="text" name="currentTitle" placeholder="Example: Graduate Student / Data Analyst Intern">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label for="totalYearsExperience">Total years of experience</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-chart-line"></i>
+          <select id="totalYearsExperience" name="totalYearsExperience" required>
+            <option value="" selected>Select years</option>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10+</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="currentStatus">Current status</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-user-graduate"></i>
+          <select id="currentStatus" name="currentStatus" required>
+            <option value="" selected>Select one</option>
+            <option>Student (Undergraduate)</option>
+            <option>Student (Graduate)</option>
+            <option>Recent graduate</option>
+            <option>Employed</option>
+            <option>Seeking opportunities</option>
+            <option>Career switcher</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="primaryGoal">Primary goal</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-bullseye"></i>
+          <select id="primaryGoal" name="primaryGoal">
+            <option value="" selected>Select one</option>
+            <option>Internship</option>
+            <option>Full-time</option>
+            <option>Role switch</option>
+            <option>Interview preparation</option>
+            <option>Upskill / roadmap</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label for="country">Country</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-earth-americas"></i>
+          <input id="country" type="text" name="country" value="United States" readonly>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="state">State</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-map"></i>
+          <select id="state" class="us-state-select" name="state" required>
+            <option value="" selected>Select a state</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="city">City</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-location-dot"></i>
+          <input id="city" type="text" name="city" placeholder="Enter city" required>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 2. EDUCATION -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-building-columns"></i></div>
+      <div>
+        <h2>Education Details</h2>
+        <p class="muted">Latest education is shown first. You can add up to 2 more education records.</p>
+      </div>
+    </div>
+
+    <div class="repeatWrap" data-section="education" data-max="3">
+      <div class="repeatContainer" id="educationContainer"></div>
+      <button class="addBtn" type="button" data-add="education"><i class="fa-solid fa-plus"></i> Add another education</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 3. TARGET ROLES -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-bullseye"></i></div>
+      <div>
+        <h2>Target Roles</h2>
+        <p class="muted">Select at least 1 role. You can add up to 3 target roles.</p>
+      </div>
+    </div>
+
+    <div class="repeatWrap" data-section="targetRole" data-max="3">
+      <div class="repeatContainer" id="targetRoleContainer"></div>
+      <button class="addBtn" type="button" data-add="targetRole"><i class="fa-solid fa-plus"></i> Add another target role</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 4. CONSTRAINTS -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-sliders"></i></div>
+      <div>
+        <h2>Constraints & Work Preferences</h2>
+        <p class="muted">These preferences help the system create realistic role-fit results.</p>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label for="workAuthorization">Work authorization</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-id-card"></i>
+          <select id="workAuthorization" name="workAuthorization" required>
+            <option value="" selected>Select one</option>
+            <option>U.S. Citizen</option>
+            <option>Permanent Resident</option>
+            <option>Student (CPT/OPT)</option>
+            <option>Need sponsorship</option>
+            <option>Other work authorization</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="preferredEmploymentType">Preferred employment type</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-suitcase"></i>
+          <select id="preferredEmploymentType" name="preferredEmploymentType" required>
+            <option value="" selected>Select type</option>
+            <option>Internship</option>
+            <option>Part-time</option>
+            <option>Full-time</option>
+            <option>Contract</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="workMode">Work mode</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-laptop"></i>
+          <select id="workMode" name="workMode" required>
+            <option value="" selected>Select mode</option>
+            <option>Remote</option>
+            <option>Hybrid</option>
+            <option>On-site</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label for="salaryExpectationMin">Salary expectation min</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-dollar-sign"></i>
+          <input id="salaryExpectationMin" type="number" name="salaryExpectationMin" placeholder="60000">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="salaryExpectationMax">Salary expectation max</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-dollar-sign"></i>
+          <input id="salaryExpectationMax" type="number" name="salaryExpectationMax" placeholder="90000">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="experienceLevel">Experience level</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-chart-simple"></i>
+          <select id="experienceLevel" name="experienceLevel" required>
+            <option value="" selected>Select level</option>
+            <option>Entry Level</option>
+            <option>Early Career</option>
+            <option>Mid Level</option>
+            <option>Experienced</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Willing to relocate?</label>
+        <div class="toggleGroup">
+          <label class="toggleChip"><input type="radio" name="willingToRelocate" value="Yes"> Yes</label>
+          <label class="toggleChip"><input type="radio" name="willingToRelocate" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Willing to travel?</label>
+        <div class="toggleGroup">
+          <label class="toggleChip"><input type="radio" name="willingToTravel" value="Yes"> Yes</label>
+          <label class="toggleChip"><input type="radio" name="willingToTravel" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 5. LOCATION -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-location-dot"></i></div>
+      <div>
+        <h2>Location Preferences</h2>
+        <p class="muted">At least 1 preferred location is required. You can add up to 5 locations.</p>
+      </div>
+    </div>
+
+    <div class="repeatWrap" data-section="location" data-max="5">
+      <div class="repeatContainer" id="locationContainer"></div>
+      <button class="addBtn" type="button" data-add="location"><i class="fa-solid fa-plus"></i> Add another location</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 6. SKILLS -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-code"></i></div>
+      <div>
+        <h2>Skills</h2>
+        <p class="muted">Select one or more skill categories. Each selected skill will get its own proficiency and confidence fields.</p>
+      </div>
+    </div>
+
+    <div class="repeatWrap" data-section="skillCategory" data-max="12">
+      <div class="repeatContainer" id="skillCategoryContainer"></div>
+      <button class="addBtn" type="button" id="addSkillCategoryBtn"><i class="fa-solid fa-plus"></i> Add another skill category</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 7. EXPERIENCE -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-briefcase"></i></div>
+      <div>
+        <h2>Experience</h2>
+        <p class="muted">Optional section. Add your latest experience first, then up to 2 more if needed.</p>
+      </div>
+      <span class="sectionBadge optional">Optional</span>
+    </div>
+
+    <div class="repeatWrap" data-section="experience" data-max="3">
+      <div class="repeatContainer" id="experienceContainer"></div>
+      <button class="addBtn" type="button" data-add="experience"><i class="fa-solid fa-plus"></i> Add another experience</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 8. PROJECTS -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-folder-open"></i></div>
+      <div>
+        <h2>Projects</h2>
+        <p class="muted">Related projects to your target role. You can add up to 3 in total.</p>
+      </div>
+      <span class="sectionBadge optional">Optional</span>
+    </div>
+
+    <div class="repeatWrap" data-section="project" data-max="3">
+      <div class="repeatContainer" id="projectContainer"></div>
+      <button class="addBtn" type="button" data-add="project"><i class="fa-solid fa-plus"></i> Add another project</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 9. CERTIFICATIONS -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-award"></i></div>
+      <div>
+        <h2>Certifications</h2>
+        <p class="muted">Related certifications to your target role. You can add up to 3 in total.</p>
+      </div>
+      <span class="sectionBadge optional">Optional</span>
+    </div>
+
+    <div class="repeatWrap" data-section="certification" data-max="3">
+      <div class="repeatContainer" id="certificationContainer"></div>
+      <button class="addBtn" type="button" data-add="certification"><i class="fa-solid fa-plus"></i> Add another certification</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 10. LANGUAGE -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-language"></i></div>
+      <div>
+        <h2>Language Preference</h2>
+        <p class="muted">Optional section. Add languages if relevant.</p>
+      </div>
+      <span class="sectionBadge optional">Optional</span>
+    </div>
+
+    <div class="repeatWrap">
+      <div class="repeatContainer" id="languageContainer"></div>
+      <button class="addBtn" type="button" id="addLanguageBtn"><i class="fa-solid fa-plus"></i> Add another language</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 11. RESUME -->
+  <div class="formSection">
+    <div class="sectionHeader">
+      <div class="sectionIcon"><i class="fa-solid fa-file-arrow-up"></i></div>
+      <div>
+        <h2>Resume Upload</h2>
+        <p class="muted">Optional but recommended for stronger future analysis.</p>
+      </div>
+      <span class="sectionBadge optional">Optional</span>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label for="resume">Upload resume</label>
+        <div class="uploadBox">
+          <i class="fa-solid fa-file-arrow-up"></i>
+          <span class="uploadLabel">Choose file</span>
+          <input id="resume" class="uploadInput" type="file" name="resume" accept=".pdf,.doc,.docx">
+        </div>
+      </div>
+
+      <div class="tipCard">
+        <div class="tipTitle"><i class="fa-solid fa-circle-info"></i> Assessment note</div>
+        <p>Required sections are enough to generate results. Optional sections improve the quality of the recommendation and analysis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="formFooter">
+    <button class="btn" type="button">
+      <i class="fa-solid fa-arrow-left"></i> Back
+    </button>
+
+    <button class="btn btnPrimary" type="submit">
+      <i class="fa-solid fa-wand-magic-sparkles"></i> Submit Assessment
+    </button>
+  </div>
+</form>
+
+<template id="educationTemplate">
+  <div class="subCard" data-block>
+    <div class="subCardHead">
+      <div class="subCardTitle">Latest Education</div>
+      <button class="iconBtn danger" type="button" data-remove><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label>Degree level</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <select data-field="degreeLevel" required>
+            <option value="" selected>Select degree level</option>
+            <option>Associate</option>
+            <option>Bachelor's</option>
+            <option>Master's</option>
+            <option>Doctorate</option>
+            <option>Diploma / Certificate</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Degree name</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-scroll"></i>
+          <input type="text" data-field="degreeName" placeholder="Example: MS in ISTM" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Major</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-book-open"></i>
+          <input type="text" data-field="major" placeholder="Enter major" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label>Institution</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-school"></i>
+          <input type="text" data-field="institution" placeholder="University / College name" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Start year</label>
+        <div class="inputIcon">
+          <i class="fa-regular fa-calendar"></i>
+          <input type="number" data-field="educationStartYear" placeholder="2024">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>End year</label>
+        <div class="inputIcon">
+          <i class="fa-regular fa-calendar-check"></i>
+          <input type="number" data-field="educationEndYear" placeholder="2026">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>GPA</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-star"></i>
+          <input type="text" data-field="gpa" placeholder="Example: 3.8 / 4.0">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Is this your current education?</label>
+        <div class="toggleGroup">
+          <label class="toggleChip"><input type="radio" data-field="isCurrentEducation" value="Yes"> Yes</label>
+          <label class="toggleChip"><input type="radio" data-field="isCurrentEducation" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="targetRoleTemplate">
+  <div class="subCard" data-block>
+    <div class="subCardHead">
+      <div class="subCardTitle">Target Role 1</div>
+      <button class="iconBtn danger" type="button" data-remove><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Industry</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-industry"></i>
+          <select class="industry-select target-industry-select" data-field="industry" required>
+            <option value="" selected>Select industry</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Target role</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-bullseye"></i>
+          <select class="target-role-select" data-field="targetRole" required>
+            <option value="" selected>Select role</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="locationTemplate">
+  <div class="subCard" data-block>
+    <div class="subCardHead">
+      <div class="subCardTitle">Preferred Location 1</div>
+      <button class="iconBtn danger" type="button" data-remove><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+    <div class="miniMuted">Required location preference.</div>
+
+    <div class="grid3">
+      <div class="field">
+        <label>State</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-map-pin"></i>
+          <select class="us-state-select" data-field="state">
+            <option value="" selected>Select a state</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>City</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-location-dot"></i>
+          <input type="text" data-field="city" placeholder="City">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Priority</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-ranking-star"></i>
+          <select data-field="priority">
+            <option value="" selected>Select priority</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="experienceTemplate">
+  <div class="subCard" data-block>
+    <div class="subCardHead">
+      <div class="subCardTitle">Latest Experience</div>
+      <button class="iconBtn danger" type="button" data-remove><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label>Employer name</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-building"></i>
+          <input type="text" data-field="employerName" placeholder="Organization name">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Job title</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-user-tie"></i>
+          <input type="text" data-field="jobTitle" placeholder="Enter role title">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Employment type</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-suitcase"></i>
+          <select data-field="employmentType">
+            <option value="" selected>Select type</option>
+            <option>Internship</option>
+            <option>Part-time</option>
+            <option>Full-time</option>
+            <option>Contract</option>
+            <option>Graduate Assistantship</option>
+            <option>Research Assistantship</option>
+            <option>Volunteer</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label>Industry</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-industry"></i>
+          <select class="industry-select" data-field="industry">
+            <option value="" selected>Select industry</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Start date</label>
+        <div class="inputIcon">
+          <i class="fa-regular fa-calendar"></i>
+          <input type="month" data-field="experienceStartDate">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>End date</label>
+        <div class="inputIcon">
+          <i class="fa-regular fa-calendar-check"></i>
+          <input type="month" data-field="experienceEndDate">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Is this your current role?</label>
+        <div class="toggleGroup">
+          <label class="toggleChip"><input type="radio" data-field="isCurrentExperience" value="Yes"> Yes</label>
+          <label class="toggleChip"><input type="radio" data-field="isCurrentExperience" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Skills used in this experience</label>
+        <div class="multiSelect skill-multiselect" data-max="10">
+          <button class="msBtn" type="button">
+            <i class="fa-solid fa-code"></i>
+            <span class="msPlaceholder">Select options</span>
+            <i class="fa-solid fa-chevron-down msChevron"></i>
+          </button>
+          <div class="msMenu" hidden></div>
+          <div class="msChips"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="projectTemplate">
+  <div class="subCard" data-block>
+    <div class="subCardHead">
+      <div class="subCardTitle">Related Project 1</div>
+      <button class="iconBtn danger" type="button" data-remove><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label>Project title</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-diagram-project"></i>
+          <input type="text" data-field="projectTitle" placeholder="Enter project title">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Industry</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-industry"></i>
+          <select class="industry-select" data-field="projectIndustry">
+            <option value="" selected>Select industry</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Organization name</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-building"></i>
+          <input type="text" data-field="projectOrganization" placeholder="University / Company / Team">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="field">
+        <label>Start date</label>
+        <div class="inputIcon">
+          <i class="fa-regular fa-calendar"></i>
+          <input type="month" data-field="projectStartDate">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>End date</label>
+        <div class="inputIcon">
+          <i class="fa-regular fa-calendar-check"></i>
+          <input type="month" data-field="projectEndDate">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Skills used in this project</label>
+        <div class="multiSelect skill-multiselect" data-max="12">
+          <button class="msBtn" type="button">
+            <i class="fa-solid fa-code"></i>
+            <span class="msPlaceholder">Select options</span>
+            <i class="fa-solid fa-chevron-down msChevron"></i>
+          </button>
+          <div class="msMenu" hidden></div>
+          <div class="msChips"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid1">
+      <div class="field">
+        <label>Project outcome <span class="miniMuted">(Max 200 words)</span></label>
+        <textarea class="textArea wordLimit" data-field="projectOutcomeText" data-max-words="200" placeholder="Mention final result, impact, or deliverable"></textarea>
+        <div class="countLabel" data-count-label>0 / 200 words</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="certificationTemplate">
+  <div class="subCard" data-block>
+    <div class="subCardHead">
+      <div class="subCardTitle">Related Certification 1</div>
+      <button class="iconBtn danger" type="button" data-remove><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Certification name</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-award"></i>
+          <input type="text" data-field="certificationName" placeholder="Example: AWS Cloud Practitioner">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Issuing organization</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-certificate"></i>
+          <input type="text" data-field="issuingOrganization" placeholder="AWS / Microsoft / Google">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Issue date</label>
+        <div class="inputIcon">
+          <i class="fa-regular fa-calendar"></i>
+          <input type="month" data-field="issueDate">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Expiration date</label>
+        <div class="inputIcon">
+          <i class="fa-regular fa-calendar-check"></i>
+          <input type="month" data-field="expirationDate">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="skillCategoryTemplate">
+  <div class="subCard skillCategoryCard" data-block>
+    <div class="subCardHead">
+      <div class="subCardTitle">Skill Category 1</div>
+      <button class="iconBtn danger" type="button" data-remove><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Skill category</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-layer-group"></i>
+          <select class="skill-category-select" data-field="skillCategory" required>
+            <option value="" selected>Select category</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Skills in this category</label>
+        <div class="multiSelect category-skill-multiselect" data-max="25">
+          <button class="msBtn" type="button">
+            <i class="fa-solid fa-code"></i>
+            <span class="msPlaceholder">Select skills</span>
+            <i class="fa-solid fa-chevron-down msChevron"></i>
+          </button>
+          <div class="msMenu" hidden></div>
+          <div class="msChips"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="generatedSkillRows"></div>
+  </div>
+</template>
+
+<template id="generatedSkillRowTemplate">
+  <div class="generatedSkillRow">
+    <div class="generatedSkillName"></div>
+
+    <div class="field">
+      <label>Proficiency</label>
+      <div class="inputIcon">
+        <i class="fa-solid fa-signal"></i>
+        <select data-subfield="proficiencyLevel">
+          <option value="" selected>Select level</option>
+          <option>1 - Beginner</option>
+          <option>2 - Basic</option>
+          <option>3 - Intermediate</option>
+          <option>4 - Advanced</option>
+          <option>5 - Strong</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Confidence</label>
+      <div class="inputIcon">
+        <i class="fa-solid fa-chart-line"></i>
+        <select data-subfield="confidenceLevel">
+          <option value="" selected>Select confidence</option>
+          <option>1 - Low</option>
+          <option>2 - Emerging</option>
+          <option>3 - Moderate</option>
+          <option>4 - High</option>
+          <option>5 - Very High</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="languageRowTemplate">
+  <div class="subCard languageCard">
+    <div class="subCardHead">
+      <div class="subCardTitle">Language 1</div>
+      <button class="iconBtn danger" type="button" data-remove><i class="fa-solid fa-trash"></i></button>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Language</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-language"></i>
+          <input type="text" data-field="languageName" placeholder="Example: English">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Proficiency</label>
+        <div class="inputIcon">
+          <i class="fa-solid fa-signal"></i>
+          <select data-field="languageProficiency">
+            <option value="" selected>Select level</option>
+            <option>Basic</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+            <option>Native / Fluent</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script src="assessment.js"></script>
+</body>
+</html>

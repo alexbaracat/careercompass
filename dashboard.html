@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Career Compass dashboard for tracking readiness, skill development, and career guidance." />
+
+  <title>Dashboard - Career Compass</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/Project logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+  <img src="assets/Project logo.png" alt="Career Compass Logo">
+</div>
+
+      <nav class="nav-section nav">
+        <h4>OVERVIEW</h4>
+
+        <a class="active" href="dashboard.html">
+          <i class="fa-solid fa-chart-line"></i> Dashboard
+        </a>
+
+        <!-- Dashboard sub-sections -->
+        <div class="subnav">
+          <a href="#readiness"><i class="fa-regular fa-circle-dot"></i> Readiness score</a>
+          <a href="#component-breakdown"><i class="fa-regular fa-circle-dot"></i> Component breakdown</a>
+          <a href="#skill-breakdown"><i class="fa-regular fa-circle-dot"></i> Skill breakdown</a>
+          <a href="#target-roles"><i class="fa-regular fa-circle-dot"></i> Target roles</a>
+          <a href="#learning-plan-panel"><i class="fa-regular fa-circle-dot"></i> Learning plan</a>
+          <a href="#learning-resources-panel"><i class="fa-regular fa-circle-dot"></i> Learning resources</a>
+          <a href="#learning-items-panel"><i class="fa-regular fa-circle-dot"></i> Learning items</a>
+          <a href="#recommended-matches-panel"><i class="fa-regular fa-circle-dot"></i> Recommended matches</a>
+        </div>
+
+        <h4>TOOLS</h4>
+
+        <a href="assessment.html">
+          <i class="fa-solid fa-clipboard-check"></i> Assessment
+        </a>
+
+        <a class="navItem" href="career-advisor.html">
+          <i class="fa-regular fa-comments"></i>
+          <span>Career advisor</span>
+        </a>
+
+        <a class="navItem" href="mock-interview.html">
+          <i class="fa-solid fa-microphone-lines"></i>
+          <span>Mock interview</span>
+        </a>
+
+        <h4>ACCOUNT</h4>
+
+        <a href="#"><i class="fa-solid fa-user"></i> Profile</a>
+        <a href="#"><i class="fa-solid fa-shield-halved"></i> Security</a>
+        <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- TOP BAR -->
+      <div class="topbar">
+        <div>
+          <h1 class="page-title">Career Readiness Dashboard</h1>
+          <p class="page-sub"> Measure your readiness, Discover skill gaps, and get career guidance.</p>
+        </div>
+
+        <div class="top-actions">
+          <a class="btn" href="#" title="Export will be enabled after results exist">
+            <i class="fa-solid fa-download"></i> Export Report
+          </a>
+
+          <a class="btn btn-primary" href="assessment.html">
+            <i class="fa-solid fa-plus"></i> New Assessment
+          </a>
+
+          <!-- Hello + Notification bell -->
+          <div class="user-mini">
+            <span class="hello" id="helloUser">Hello</span>
+            <button class="icon-btn" type="button" aria-label="Notifications" title="Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="notif-dot" id="notifDot"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <!-- LEFT: EMPTY STATE (no fake results) -->
+        <section class="card empty span-8">
+          <!-- Removed the pill "No assessment results yet" (you marked it) -->
+
+          <div class="big">Start your first assessment</div>
+          <p class="muted">
+            Career Compass is a career decision support system designed to help you understand
+your current readiness, identify skill gaps, and discover the most suitable career
+paths based on your interests, experience, and goals. By completing a short
+assessment, the system analyzes your profile and provides personalized insights,
+target roles, and learning recommendations to guide your career development.
+          </p>
+
+          <!-- Only NEXT BEST ACTION (colorful) -->
+           <div class="next-action-card">
+  <div class="na-label">Next best action</div>
+
+  <a class="btn btn-white na-btn" href="assessment.html">
+    <i class="fa-solid fa-play"></i> Start Assessment
+  </a>
+
+  <div class="na-sub">
+    It guides your next career steps
+  </div>
+</div>
+ </section>
+        <!-- RIGHT: CONSTRAINTS SUMMARY (Quick Summary removed completely) -->
+        <section class="card constraints span-4">
+          <h3>Constraints summary</h3>
+          <!-- Removed the extra text line under heading (you marked it) -->
+
+          <div class="constraint-item">
+            <div class="c-ic"><i class="fa-solid fa-id-card"></i></div>
+            <div>
+              <div class="c-title">Work authorization</div>
+              <div class="c-sub">Not set</div>
+            </div>
+          </div>
+
+          <div class="constraint-item">
+            <div class="c-ic"><i class="fa-solid fa-file-contract"></i></i></div>
+            <div>
+              <div class="c-title">Employment type</div>
+              <div class="c-sub">Not set</div>
+            </div>
+          </div>
+
+          <div class="constraint-item">
+            <div class="c-ic"><i class="fa-solid fa-laptop"></i></div>
+            <div>
+              <div class="c-title">Work mode</div>
+              <div class="c-sub">Not set</div>
+            </div>
+          </div>
+
+          <div class="constraint-item">
+            <div class="c-ic"><i class="fa-solid fa-briefcase"></i></div>
+            <div>
+              <div class="c-title">Experience level</div>
+              <div class="c-sub">Not set</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DASHBOARD SUB-SECTIONS -->
+<section class="card span-8 plainSection" id="readiness">
+  <h3>Your Assessment</h3>
+
+  <div class="section-grid two-col">
+
+    <!-- CARD 1 -->
+    <div class="mini-card hero-readiness">
+
+      <div class="mini-top">
+        <span class="mini-ic"><i class="fa-solid fa-chart-line"></i></span>
+        <span class="mini-label">Assessment Score</span>
+      </div>
+
+      <div class="big-metric" id="readinessScoreValue">%</div>
+
+      <div class="mini-sub readiness-tagline">
+         Your overall assessment of your target roles.
+      </div>
+
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="mini-card" id="assessment-history">
+      <div class="mini-top">
+        <span class="mini-ic"><i class="fa-regular fa-clock"></i></span>
+        <span class="mini-label">Assessment history</span>
+      </div>
+
+      <div class="stats-stack">
+        <div class="stat-row">
+          <span>Last assessment</span>
+          <strong id="lastAssessmentDate">Not available</strong>
+        </div>
+
+        <div class="stat-row">
+          <span>Previous score</span>
+          <strong id="previousScore">%</strong>
+        </div>
+
+        <div class="stat-row">
+          <span>Improvement trend</span>
+          <strong id="improvementTrend">%</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- preferred locations -->
+
+<section class="card constraints span-4" id="preferred-locations-card">
+  <div class="mini-top">
+    <span class="mini-ic"><i class="fa-solid fa-location-dot"></i></span>
+    <span class="mini-label">Location preferences</span>
+  </div>
+
+  <div class="mini-sub location-subtitle">Your Top 5 Priority Locations</div>
+
+  <div class="location-boxes">
+    <div class="location-slot"></div>
+    <div class="location-slot"></div>
+    <div class="location-slot"></div>
+    <div class="location-slot"></div>
+    <div class="location-slot"></div>
+  </div>
+</section>
+
+<section class="card span-12 plainSection" id="component-breakdown">
+  <h3>Component score breakdown</h3>
+
+  <div class="section-grid four-col">
+    <div class="mini-card metric-card">
+      <div class="mini-top">
+        <span class="mini-ic"><i class="fa-solid fa-code"></i></span>
+        <span class="mini-label">Skill match</span>
+      </div>
+      <div class="metric-number" id="skillMatchValue">%</div>
+      <div class="progress-line"><span id="skillMatchBar" style="width:0%"></span></div>
+      <div class="mini-sub">Your readiness level</div>
+    </div>
+
+    <div class="mini-card metric-card">
+      <div class="mini-top">
+        <span class="mini-ic"><i class="fa-solid fa-briefcase"></i></span>
+        <span class="mini-label">Experience match</span>
+      </div>
+      <div class="metric-number" id="experienceMatchValue">%</div>
+      <div class="progress-line"><span id="experienceMatchBar" style="width:0%"></span></div>
+      <div class="mini-sub">Your readiness level</div>
+    </div>
+
+    <div class="mini-card metric-card">
+      <div class="mini-top">
+        <span class="mini-ic"><i class="fa-solid fa-graduation-cap"></i></span>
+        <span class="mini-label">Education match</span>
+      </div>
+      <div class="metric-number" id="educationMatchValue">%</div>
+      <div class="progress-line"><span id="educationMatchBar" style="width:0%"></span></div>
+      <div class="mini-sub">Your readiness level</div>
+    </div>
+
+    <div class="mini-card metric-card">
+    <div class="mini-top">
+    <span class="mini-ic"><i class="fa-solid fa-signal"></i></span>
+    <span class="mini-label">Readiness band</span>
+  </div>
+  <div class="metric-number" id="readinessBandValue">--</div>
+  <div class="progress-line"><span id="readinessBandBar" style="width:0%"></span></div>
+  <div class="mini-sub">Your readiness level</div>
+   </div>
+  </div>
+</section>
+
+
+<section class="card span-12 plainSection" id="skill-breakdown">
+  <h3>Skill breakdown</h3>
+
+  <div class="section-grid three-col">
+    <div class="mini-card">
+      <div class="mini-top">
+        <span class="mini-ic"><i class="fa-solid fa-layer-group"></i></span>
+        <span class="mini-label">Matched skills</span>
+      </div>
+      <div class="metric-number" id="matchedSkillsCount">0</div>
+      <div class="mini-sub">Skills aligned with your selected career roles</div>
+    </div>
+
+    <div class="mini-card">
+      <div class="mini-top">
+        <span class="mini-ic"><i class="fa-solid fa-diagram-project"></i></span>
+        <span class="mini-label">Missing skills</span>
+      </div>
+      <div class="metric-number" id="missingSkillsCount">0</div>
+      <div class="mini-sub">Key skills identified as gaps for your target roles</div>
+    </div>
+
+   <div class="mini-card">
+  <div class="mini-top">
+    <span class="mini-ic"><i class="fa-solid fa-chart-simple"></i></span>
+    <span class="mini-label">Gap severity</span>
+  </div>
+  <div class="skill-name" id="gapSeverityText">--</div>
+  <div class="mini-sub">Overall intensity of skill gaps across selected roles</div>
+</div>
+  </div>
+</section>
+
+<section class="plainSection span-12" id="target-roles">
+
+  <h3>Overall Readiness Score</h3>
+
+  <div class="roles-chart-grid" id="rolesChartGrid">
+    <!-- JS will generate 1 to 3 cards here -->
+  </div>
+
+</section>
+
+<section class="plainSection span-12" id="learning-journey-section">
+
+  <!-- 1. LEARNING PLAN -->
+  <section class="journey-panel" id="learning-plan-panel">
+    <h3>Learning plan</h3>
+
+    <div class="learning-plan-header">
+      <div class="plan-header-top">
+        <span class="plan-icon"><i class="fa-solid fa-route"></i></span>
+        <div class="plan-title-area">
+          <div class="plan-title">Learning plan</div>
+          <div class="plan-sub">Personalized improvement roadmap</div>
+        </div>
+      </div>
+
+      <div class="plan-description" id="learningPlanDescription">
+        Your personalized learning path will appear here after readiness analysis.
+        The system will recommend focused learning steps to help close skill gaps
+        and improve your readiness for target roles.
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. LEARNING RESOURCES -->
+  <section class="journey-panel" id="learning-resources-panel">
+    <h3>Learning resources</h3>
+    <p class="section-desc">
+      Recommended learning resources based on your most important skill gaps.
+    </p>
+
+    <div class="auto-list-grid" id="learningResourcesContainer">
+      <div class="empty-state-box">
+        <div class="empty-state-title">Learning resources will appear here</div>
+        <div class="empty-state-sub">
+          Resources will be generated automatically after readiness analysis.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. LEARNING ITEMS -->
+  <section class="journey-panel" id="learning-items-panel">
+    <h3>Learning items</h3>
+    <p class="section-desc">
+      Personalized learning steps based on skill gaps and priority level.
+    </p>
+
+    <div class="auto-list-grid" id="learningItemsContainer">
+      <div class="empty-state-box">
+        <div class="empty-state-title">Learning items will appear here</div>
+        <div class="empty-state-sub">
+          Action steps will be generated automatically after assessment.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. RECOMMENDED MATCHES -->
+  <section class="journey-panel" id="recommended-matches-panel">
+    <h3>Recommended matches</h3>
+    <p class="section-desc">
+      Your recommended job opportunities based on your readiness analysis.
+    </p>
+
+    <div class="auto-list-grid" id="recommendedMatchesContainer">
+      <div class="empty-state-box">
+        <div class="empty-state-title">Recommended matches will appear here</div>
+        <div class="empty-state-sub">
+          Matching opportunities will be generated automatically after readiness analysis.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<section class="card span-12 plainSection" id="next-best-action">
+  <h3>Next best action</h3>
+
+  <div class="section-grid one-col">
+    <div class="mini-card wide-action-card">
+      <div class="mini-top">
+        <span class="mini-ic"><i class="fa-solid fa-compass"></i></span>
+        <span class="mini-label">Priority recommendation</span>
+      </div>
+
+      <div class="wide-action-row">
+        <div>
+          <div class="skill-name" id="priorityActionTitle">Start assessment to unlock your career roadmap</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="dashboard.js"></script>
+
+</body>
+</html>

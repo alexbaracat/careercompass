@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/Project%20logo.png" alt="CareerQuest logo" width="160" />
+  <img src="assets/Project%20logo.png" alt="Career Compass logo" width="160" />
 </p>
 
-<h1 align="center">CareerQuest</h1>
+<h1 align="center">Career Compass</h1>
 
 <p align="center">
   <em>Measure your career readiness, discover skill gaps, and get guidance on the roles that fit you.</em>
@@ -20,7 +20,7 @@
 
 ## Overview
 
-**CareerQuest** (shown in the app as *Career Compass*) is a full-stack career-guidance web app. A user builds a profile, completes a guided assessment covering education, experience, skills, certifications, projects and career preferences, and receives a readiness dashboard that highlights how they stack up against their target roles and where the skill gaps are.
+**Career Compass** is a full-stack career-guidance web app. A user builds a profile, completes a guided assessment covering education, experience, skills, certifications, projects and career preferences, and receives a readiness dashboard that highlights how they stack up against their target roles and where the skill gaps are.
 
 ## Features
 
@@ -44,7 +44,7 @@
 ## Project structure
 
 ```text
-careerquest/
+career-compass/
 ├── assets/                 # Project logo
 ├── backend/
 │   ├── src/
@@ -77,8 +77,8 @@ careerquest/
 ### 1. Clone
 
 ```bash
-git clone https://github.com/alexbaracat/careerquest.git
-cd careerquest
+git clone https://github.com/alexbaracat/careercompass.git
+cd careercompass
 ```
 
 ### 2. Start the API (port 4000)
